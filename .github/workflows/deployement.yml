@@ -26,7 +26,9 @@ jobs:
           script: |
             set -e
 
-            echo "Starting deployment..."
+            echo "======================================"
+            echo "Starting deployment"
+            echo "======================================"
 
             cd /home/ubuntu/my-app/hello-world
 
@@ -48,4 +50,6 @@ jobs:
             echo "Checking containers..."
             docker compose ps
 
-            echo "Deployment completed successfully!"
+            echo "======================================"
+            echo "Deployment completed successfully"
+            echo "======================================"
