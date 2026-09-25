@@ -1,0 +1,9 @@
+version: '3.8'
+
+services:
+  hello-world-app:
+    build: .
+    container_name: hello_world_frontend
+    ports:
+      - "8080:80"
+    restart: always

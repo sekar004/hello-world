@@ -1,0 +1,321 @@
+:root {
+    --bg-gradient: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #0f172a 100%);
+    --card-bg: rgba(30, 41, 59, 0.7);
+    --card-border: rgba(255, 255, 255, 0.1);
+    --text-main: #f8fafc;
+    --text-muted: #94a3b8;
+    --accent-blue: #38bdf8;
+    --accent-purple: #818cf8;
+    --accent-hover: #60a5fa;
+    --success-green: #22c55e;
+    --shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.4), 0 8px 10px -6px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="light"] {
+    --bg-gradient: linear-gradient(135deg, #f0f9ff 0%, #e0e7ff 50%, #f0f9ff 100%);
+    --card-bg: rgba(255, 255, 255, 0.85);
+    --card-border: rgba(0, 0, 0, 0.08);
+    --text-main: #0f172a;
+    --text-muted: #64748b;
+    --accent-blue: #0284c7;
+    --accent-purple: #4f46e5;
+    --accent-hover: #0369a1;
+    --shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+body {
+    min-height: 100vh;
+    background: var(--bg-gradient);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    position: relative;
+    overflow-x: hidden;
+}
+
+.background-globes {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.globe {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.4;
+}
+
+.globe-1 {
+    width: 300px;
+    height: 300px;
+    background: #38bdf8;
+    top: -50px;
+    left: -50px;
+}
+
+.globe-2 {
+    width: 400px;
+    height: 400px;
+    background: #818cf8;
+    bottom: -100px;
+    right: -100px;
+}
+
+.globe-3 {
+    width: 250px;
+    height: 250px;
+    background: #ec4899;
+    top: 40%;
+    left: 60%;
+}
+
+.container {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 480px;
+    background: var(--card-bg);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid var(--card-border);
+    border-radius: 24px;
+    box-shadow: var(--shadow);
+    padding: 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 14px;
+    background: rgba(56, 189, 248, 0.15);
+    color: var(--accent-blue);
+    border: 1px solid rgba(56, 189, 248, 0.3);
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.icon-btn {
+    background: transparent;
+    border: 1px solid var(--card-border);
+    color: var(--text-main);
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+}
+
+.icon-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.card-body {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+}
+
+.icon-hero {
+    font-size: 3rem;
+    color: var(--accent-purple);
+    background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: bounce 2s infinite ease-in-out;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+}
+
+.title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text-main);
+}
+
+.subtitle {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+}
+
+.status-box {
+    width: 100%;
+    background: rgba(0, 0, 0, 0.15);
+    border-radius: 14px;
+    padding: 12px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+.status-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.status-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.status-dot.green {
+    background: var(--success-green);
+    box-shadow: 0 0 8px var(--success-green);
+}
+
+.interactive-section {
+    width: 100%;
+    margin-top: 8px;
+}
+
+.counter-box {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--card-border);
+    border-radius: 16px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+}
+
+.counter-label {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-muted);
+    font-weight: 600;
+}
+
+.counter-controls {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+#counterValue {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--accent-blue);
+    min-width: 40px;
+}
+
+.btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    border: none;
+    font-size: 1.2rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-primary {
+    background: var(--accent-purple);
+    color: white;
+}
+
+.btn-primary:hover {
+    filter: brightness(1.1);
+}
+
+.btn-secondary {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--text-main);
+}
+
+.btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.info-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    width: 100%;
+    margin-top: 8px;
+}
+
+.info-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--card-border);
+    border-radius: 14px;
+    padding: 14px;
+    text-align: left;
+}
+
+.info-card i {
+    color: var(--accent-blue);
+    margin-bottom: 8px;
+}
+
+.info-card h3 {
+    font-size: 0.9rem;
+    color: var(--text-main);
+    margin-bottom: 4px;
+}
+
+.info-card p {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+.card-footer {
+    text-align: center;
+    border-top: 1px solid var(--card-border);
+    padding-top: 16px;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+.card-footer a {
+    color: var(--accent-blue);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.card-footer a:hover {
+    text-decoration: underline;
+}
